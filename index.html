@@ -8,7 +8,11 @@
 </head>
 <body>
     <div id="app">
-        {{somar()}}
+        {{somar()}}<br>
+        {{subtrair()}}<br>
+        {{ multiplicar() }}<br>
+        {{ dividir()}}<br>
+        {{ nuemroAleatorio() }}
     </div>
 
     <script>
@@ -19,8 +23,20 @@
                 mensagem: 'primeiro template controlado pelo vue'
             },
             methods: {
-                somar: function somar() {
+                somar: function somar() { //convencional
                     return 4 + 2;
+                },
+                subtrair: function() { //anonima
+                    return 4 -2;
+                },
+                multiplicar: () => { //arrow function
+                    return 4 * 2;
+                },
+                dividir() {
+                    return 4/2;
+                },
+                nuemroAleatorio: function numeroAleatorio() {
+                    return Math.random();
                 }
             }
         }) 
