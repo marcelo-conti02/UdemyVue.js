@@ -5,40 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./vue.js"></script>
     <title>Document</title>
+    <style>
+        .vermelho {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        {{somar()}}<br>
-        {{subtrair()}}<br>
-        {{ multiplicar() }}<br>
-        {{ dividir()}}<br>
-        {{ nuemroAleatorio() }}
+        <a v-bind:href="site">Site</a>
+        <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
+        <input type="text" v-bind:placeholder="instrucaoDePreenchimento" v-bind:value="valor">
+        <input type="checkbox" v-bind:checked="check">
     </div>
 
     <script>
 
         const vm = new Vue({
             el: '#app',
-            data: { 
-                mensagem: 'primeiro template controlado pelo vue'
+            data: {
+                site: 'https://jorgesantana.net.br',
+                cor: 'vermelho',
+                instrucaoDePreenchimento: 'Placeholder - v-bind',
+                valor: 'entendi diretiva v-bind',
+                check:true
             },
-            methods: {
-                somar: function somar() { //convencional
-                    return 4 + 2;
-                },
-                subtrair: function() { //anonima
-                    return 4 -2;
-                },
-                multiplicar: () => { //arrow function
-                    return 4 * 2;
-                },
-                dividir() {
-                    return 4/2;
-                },
-                nuemroAleatorio: function numeroAleatorio() {
-                    return Math.random();
-                }
-            }
+            methods: {}
         }) 
         console.log(vm)
     </script>
