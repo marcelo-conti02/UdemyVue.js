@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,19 @@
     <title>Document</title>
     <style>
         .vermelho {
-            color: red;
+            background-color: red;
+        }
+
+        .azul {
+            background-color: blue;
         }
     </style>
 </head>
+
 <body>
     <div id="app">
-        <a v-bind:href="site">Site</a>
-        <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
-        <input type="text" v-bind:placeholder="instrucaoDePreenchimento" v-bind:value="valor">
-        <input type="checkbox" v-bind:checked="check">
+        {{mensagem.substr(0,5)}}
+        <input :value="mensagem" :class=" teste ? 'vermelho' : estilo">
     </div>
 
     <script>
@@ -24,15 +28,14 @@
         const vm = new Vue({
             el: '#app',
             data: {
-                site: 'https://jorgesantana.net.br',
-                cor: 'vermelho',
-                instrucaoDePreenchimento: 'Placeholder - v-bind',
-                valor: 'entendi diretiva v-bind',
-                check:true
+                mensagem: 'Expressão',
+                estilo: 'azul',
+                teste: false
             },
             methods: {}
-        }) 
+        })
         console.log(vm)
     </script>
 </body>
+
 </html>
